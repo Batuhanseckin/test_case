@@ -1,0 +1,30 @@
+{
+    "last_updated": "Fri, 18 Feb 2022 15:02:14 GMT",
+    "routes": [
+        {
+            "file_path": "views/login/login_view.dart",
+            "route_name": "loginViewRoute",
+            "view_name": "LoginView"
+        },
+        {
+            "file_path": "views/choose_country_code/choose_country_code_view.dart",
+            "route_name": "choose_country_codeViewRoute",
+            "view_name": "ChooseCountryCodeView"
+        },
+        {
+            "file_path": "views/confirm_phone_number/confirm_phone_number_view.dart",
+            "route_name": "confirm_phone_numberViewRoute",
+            "view_name": "ConfirmPhoneNumberView"
+        },
+        {
+            "file_path": "views/main/main_view.dart",
+            "route_name": "mainViewRoute",
+            "view_name": "MainView"
+        },
+        {
+            "file_path": "views/home/home_view.dart",
+            "route_name": "homeViewRoute",
+            "view_name": "HomeView"
+        }
+    ]
+}
