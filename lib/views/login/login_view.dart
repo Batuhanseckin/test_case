@@ -6,6 +6,8 @@ import 'login_view_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginView extends StatefulWidget {
+  const LoginView({Key key}) : super(key: key);
+
   @override
   State<LoginView> createState() => _LoginViewState();
 }

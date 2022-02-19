@@ -19,9 +19,9 @@ class _ChooseCountryCodeViewState extends State<ChooseCountryCodeView> {
       ) {
         return AlertDialog(
           insetPadding: EdgeInsets.all(20.w),
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 15.w,
-            vertical: 15.h,
+          contentPadding: EdgeInsets.only(
+            top: 15.h,
+            bottom: 15.h,
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -48,13 +48,19 @@ class _ChooseCountryCodeViewState extends State<ChooseCountryCodeView> {
     );
   }
 
-  Widget _buildCountries(ChooseCountryCodeViewModel _viewModel) => SizedBox(
+  Widget _buildCountries(ChooseCountryCodeViewModel _viewModel) => Container(
+        margin: EdgeInsets.only(left: 15.w),
         height: 460.h,
-        width: 100.w,
-        child: ListView.separated(
-          itemBuilder: (context, index) => _buildItem(index, _viewModel),
-          separatorBuilder: (context, index) => SizedBox(height: 20.h),
-          itemCount: _viewModel.countries.length,
+        width: 150.w,
+        child: RawScrollbar(
+          isAlwaysShown: true,
+          thumbColor: const Color(0xFF3A3335).withOpacity(.3),
+          child: ListView.separated(
+            padding: EdgeInsets.only(right: 15.w),
+            itemBuilder: (context, index) => _buildItem(index, _viewModel),
+            separatorBuilder: (context, index) => SizedBox(height: 20.h),
+            itemCount: _viewModel.countries.length,
+          ),
         ),
       );
 
@@ -64,7 +70,8 @@ class _ChooseCountryCodeViewState extends State<ChooseCountryCodeView> {
     double height,
     VoidCallback onPress,
   ) =>
-      SizedBox(
+      Container(
+        margin: EdgeInsets.symmetric(horizontal: 15.w),
         width: width.w,
         height: height.h,
         child: TextFormField(
@@ -119,30 +126,33 @@ class _ChooseCountryCodeViewState extends State<ChooseCountryCodeView> {
         ),
       );
 
-  Widget get _buildCloseIconAndTitle => Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: const Color(0xFF006AFF).withOpacity(.3),
+  Widget get _buildCloseIconAndTitle => Container(
+        margin: EdgeInsets.symmetric(horizontal: 15.w),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: const Color(0xFF006AFF).withOpacity(.3),
+              ),
+              child: Icon(
+                Icons.close,
+                color: Colors.white,
+                size: 10.sp,
+              ),
             ),
-            child: Icon(
-              Icons.close,
-              color: Colors.white,
-              size: 10.sp,
-            ),
-          ),
-          SizedBox(width: 10.w),
-          Text(
-            "Ülkenizi Seçin",
-            style: TextStyle(
-              fontSize: 16.sp,
-              color: const Color(0xFF484848),
-              fontWeight: FontWeight.bold,
-            ),
-          )
-        ],
+            SizedBox(width: 10.w),
+            Text(
+              "Ülkenizi Seçin",
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: const Color(0xFF484848),
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ],
+        ),
       );
 
   _buildItem(int index, ChooseCountryCodeViewModel viewModel) {

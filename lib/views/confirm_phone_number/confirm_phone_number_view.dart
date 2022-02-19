@@ -179,7 +179,7 @@ class _ConfirmPhoneNumberViewState extends State<ConfirmPhoneNumberView> {
                     borderRadius: BorderRadius.circular(12), // <-- Radius
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () => viewModel.nextMain(),
                 child: Text(
                   "Onayla",
                   style: TextStyle(
