@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:stacked/stacked.dart';
+import 'package:test_case/views/choose_country_code/choose_country_code_view.dart';
 import 'login_view_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -108,9 +109,68 @@ class _LoginViewState extends State<LoginView> {
   get _buildTffs => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _buildTFF("Alan Kodu", 90, 47, () {}),
+          viewModel.selectedCountry != null
+              ? InkWell(
+                  onTap: () async {
+                    var selectedCountry = await showDialog(
+                        context: context,
+                        builder: (context) {
+                          return ChooseCountryCodeView();
+                        });
+                    if (selectedCountry != null) {
+                      viewModel.selectedCountry = selectedCountry;
+                      viewModel.notifyListeners();
+                    }
+                  },
+                  child: SizedBox(
+                    width: 90.w,
+                    height: 47.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 30.w,
+                          height: 20.h,
+                          child: Image.network(
+                            viewModel.selectedCountry.flag,
+                            width: 30.w,
+                            height: 20.h,
+                          ),
+                        ),
+                        SizedBox(width: 10.w),
+                        Text(
+                          viewModel.selectedCountry.number,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              : _buildTFF(
+                  "Alan Kodu",
+                  90,
+                  47,
+                  () async {
+                    var selectedCountry = await showDialog(
+                        context: context,
+                        builder: (context) {
+                          return ChooseCountryCodeView();
+                        });
+                    if (selectedCountry != null) {
+                      viewModel.selectedCountry = selectedCountry;
+                      viewModel.notifyListeners();
+                    }
+                  },
+                ),
           SizedBox(width: 10.w),
-          _buildTFF("Cep Telefonu", 255, 47, () {}),
+          _buildTFF(
+            "Cep Telefonu",
+            255,
+            47,
+            () {},
+          ),
         ],
       );
 

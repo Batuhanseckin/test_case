@@ -1,0 +1,52 @@
+[
+    {
+      "name": "Afghanistan",
+      "flag": "https://www.worldometers.info/img/flags/af-flag.gif",
+      "number": "+93"
+    },
+    {
+      "name": "Albania",
+      "flag": "https://www.worldometers.info/img/flags/al-flag.gif",
+      "number": "+355"
+    },
+    {
+      "name": "Algeria",
+      "flag": "https://www.worldometers.info/img/flags/ag-flag.gif",
+      "number": "+213"
+    },
+    {
+      "name": "Andorra",
+      "flag": "https://www.worldometers.info/img/flags/an-flag.gif",
+      "number": "+376"
+    },
+    {
+      "name": "Angola",
+      "flag": "https://www.worldometers.info/img/flags/ao-flag.gif",
+      "number": "+244"
+    },
+    {
+      "name": "Anguilla",
+      "flag": "https://www.worldometers.info/img/flags/au-flag.gif",
+      "number": "+1264"
+    },
+    {
+      "name": "Antigua and Barbuda",
+      "flag": "https://www.worldometers.info/img/flags/ac-flag.gif",
+      "number": "+1268"
+    },
+    {
+      "name": "Argentina",
+      "flag": "https://www.worldometers.info/img/flags/ar-flag.gif",
+      "number": "+54"
+    },
+    {
+      "name": "Armenia",
+      "flag": "https://www.worldometers.info/img/flags/am-flag.gif",
+      "number": "+374"
+    },
+    {
+      "name": "Aruba",
+      "flag": "https://www.worldometers.info/img/flags/as-flag.gif",
+      "number": "+297"
+    }
+  ]
