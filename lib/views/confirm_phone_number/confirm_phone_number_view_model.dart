@@ -14,4 +14,10 @@ class ConfirmPhoneNumberViewModel extends BaseViewModel {
   nextMain() {
     NavigationService().pushNamedAndRemoveUntil(mainViewRoute);
   }
+
+  String formatTime(int seconds) {
+    var minute = (seconds / 60).floor();
+    var remainSeconds = (seconds % 60);
+    return '${minute.toString().length < 2 ? ("0" + minute.toString()) : minute}:${remainSeconds.toString().length < 2 ? ("0" + remainSeconds.toString()) : remainSeconds}';
+  }
 }

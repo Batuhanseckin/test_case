@@ -9,6 +9,8 @@ class ChooseCountryCodeView extends StatefulWidget {
 }
 
 class _ChooseCountryCodeViewState extends State<ChooseCountryCodeView> {
+  ScrollController controller = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<ChooseCountryCodeViewModel>.reactive(
@@ -23,21 +25,23 @@ class _ChooseCountryCodeViewState extends State<ChooseCountryCodeView> {
             top: 15.h,
             bottom: 15.h,
           ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              _buildCloseIconAndTitle,
-              SizedBox(height: 30.h),
-              _buildTFF(
-                "Ülke adı veya kod ile arama yapın",
-                305.w,
-                40.h,
-                () {},
-              ),
-              SizedBox(height: 30.h),
-              _buildCountries(viewModel),
-            ],
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _buildCloseIconAndTitle,
+                SizedBox(height: 30.h),
+                _buildTFF(
+                  "Ülke adı veya kod ile arama yapın",
+                  305.w,
+                  40.h,
+                  () {},
+                ),
+                SizedBox(height: 30.h),
+                _buildCountries(viewModel),
+              ],
+            ),
           ),
         );
       },
@@ -53,9 +57,11 @@ class _ChooseCountryCodeViewState extends State<ChooseCountryCodeView> {
         height: 460.h,
         width: 150.w,
         child: RawScrollbar(
+          controller: controller,
           isAlwaysShown: true,
           thumbColor: const Color(0xFF3A3335).withOpacity(.3),
           child: ListView.separated(
+            controller: controller,
             padding: EdgeInsets.only(right: 15.w),
             itemBuilder: (context, index) => _buildItem(index, _viewModel),
             separatorBuilder: (context, index) => SizedBox(height: 20.h),
@@ -130,16 +136,19 @@ class _ChooseCountryCodeViewState extends State<ChooseCountryCodeView> {
         margin: EdgeInsets.symmetric(horizontal: 15.w),
         child: Row(
           children: [
-            Container(
-              padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: const Color(0xFF006AFF).withOpacity(.3),
-              ),
-              child: Icon(
-                Icons.close,
-                color: Colors.white,
-                size: 10.sp,
+            InkWell(
+              onTap: () => Navigator.pop(context),
+              child: Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: const Color(0xFF006AFF).withOpacity(.3),
+                ),
+                child: Icon(
+                  Icons.close,
+                  color: Colors.white,
+                  size: 10.sp,
+                ),
               ),
             ),
             SizedBox(width: 10.w),

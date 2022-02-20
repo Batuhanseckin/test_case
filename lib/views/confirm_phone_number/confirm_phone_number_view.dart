@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -13,6 +15,39 @@ class ConfirmPhoneNumberView extends StatefulWidget {
 class _ConfirmPhoneNumberViewState extends State<ConfirmPhoneNumberView> {
   ConfirmPhoneNumberViewModel viewModel;
 
+  Timer _timer;
+  int _start = 120;
+
+  @override
+  void initState() {
+    startTimer();
+    super.initState();
+  }
+
+  void startTimer() {
+    const oneSec = Duration(seconds: 1);
+    _timer = Timer.periodic(
+      oneSec,
+      (Timer timer) {
+        if (_start == 0) {
+          setState(() {
+            timer.cancel();
+          });
+        } else {
+          setState(() {
+            _start--;
+          });
+        }
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<ConfirmPhoneNumberViewModel>.reactive(
@@ -20,6 +55,7 @@ class _ConfirmPhoneNumberViewState extends State<ConfirmPhoneNumberView> {
           Widget _) {
         return Scaffold(
           body: _buildBody,
+          resizeToAvoidBottomInset: false,
         );
       },
       onModelReady: (model) {
@@ -157,7 +193,7 @@ class _ConfirmPhoneNumberViewState extends State<ConfirmPhoneNumberView> {
   }
 
   get _buildTimeText => Text(
-        "02:00",
+        viewModel.formatTime(_start),
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 30.sp,

@@ -165,6 +165,7 @@ class _LoginViewState extends State<LoginView> {
                       viewModel.notifyListeners();
                     }
                   },
+                  true,
                 ),
           SizedBox(width: 10.w),
           _buildTFF(
@@ -172,6 +173,7 @@ class _LoginViewState extends State<LoginView> {
             255,
             47,
             () {},
+            false,
           ),
         ],
       );
@@ -181,11 +183,13 @@ class _LoginViewState extends State<LoginView> {
     double width,
     double height,
     VoidCallback onPress,
+    bool readOnly,
   ) =>
       SizedBox(
         width: width.w,
         height: height.h,
         child: TextFormField(
+          readOnly: readOnly,
           onTap: onPress,
           decoration: InputDecoration(
             labelText: label,
