@@ -5,10 +5,13 @@ import 'search_view_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchView extends StatelessWidget {
+  SearchViewModel _viewModel;
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<SearchViewModel>.reactive(
       builder: (BuildContext context, SearchViewModel viewModel, Widget _) {
+        this._viewModel = viewModel;
         return Scaffold(
           body: _buildBody,
         );
@@ -92,10 +95,18 @@ class SearchView extends StatelessWidget {
           Positioned(
             right: 10.w,
             top: 10.h,
-            child: SvgPicture.asset(
-              "assets/icons/svg/favorite_2.svg",
-              width: 20.w,
-              height: 20.h,
+            child: InkWell(
+              onTap: () {
+                _viewModel.favorite = !_viewModel.favorite;
+                _viewModel.notifyListeners();
+              },
+              child: SvgPicture.asset(
+                _viewModel.favorite
+                    ? "assets/icons/svg/favorite_icon_fill.svg"
+                    : "assets/icons/svg/favorite_2.svg",
+                width: 20.w,
+                height: 20.h,
+              ),
             ),
           )
         ],
