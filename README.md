@@ -1,16 +1,38 @@
-# test_case
+# Kiram Kolay
 
-A new Flutter project.
+Kiramkolay.com, günümüz gayrimenkul kiralama sektörüne yeni bir bakış açısı getirerek sistemde var olan sorunları çözmeyi hedefleyen; kullanıcılarına sağladığı çözümler ile süreç yönetimini kolaylaştıran yeni bir online gayrimenkul yönetim platformudur.
 
-## Getting Started
+## Run Locally
 
-This project is a starting point for a Flutter application.
+Clone the project
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+  git clone https://github.com/Batuhanseckin/test_case.git
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Go to the project directory
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+  cd test_case
+```
+
+Install dependencies
+
+```bash
+  flutter pub get
+```
+
+Run project
+
+```bash
+  flutter run
+```
+## Screenshots
+
+![App Screenshot](https://www.hizliresim.com/rxoiqc3)
+
+![App Screenshot](https://www.hizliresim.com/lkx2s06)
+
+![App Screenshot](https://www.hizliresim.com/1pfnmk9)
+
+![App Screenshot](https://www.hizliresim.com/18oet2o)
