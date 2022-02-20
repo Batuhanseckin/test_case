@@ -30,26 +30,32 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 
-  Widget get _buildBody => Column(
-        children: [
-          SizedBox(height: 80.h),
-          _buildLogo,
-          SizedBox(height: 15.6.h),
-          _buildTitle,
-          SizedBox(height: 15.h),
-          _buildSubTitle,
-          SizedBox(height: 20.h),
-          _buildTffs,
-          SizedBox(height: 10.h),
-          _buildInfoText,
-          const Spacer(),
-          _buildSmsButton,
-          SizedBox(height: 10.h),
-          _buildWpButton,
-          SizedBox(height: 20.h),
-          _buildPrivacyPolicy,
-          SizedBox(height: 30.h),
-        ],
+  Widget get _buildBody => SingleChildScrollView(
+        child: SizedBox(
+          height: ScreenUtil().screenHeight,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: 80.h),
+              _buildLogo,
+              SizedBox(height: 15.6.h),
+              _buildTitle,
+              SizedBox(height: 15.h),
+              _buildSubTitle,
+              SizedBox(height: 20.h),
+              _buildTffs,
+              SizedBox(height: 10.h),
+              _buildInfoText,
+              const Spacer(),
+              _buildSmsButton,
+              SizedBox(height: 10.h),
+              _buildWpButton,
+              SizedBox(height: 20.h),
+              _buildPrivacyPolicy,
+              SizedBox(height: 30.h),
+            ],
+          ),
+        ),
       );
 
   get _buildLogo => SizedBox(
