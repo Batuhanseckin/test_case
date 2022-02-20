@@ -29,10 +29,10 @@ Run project
 ```
 ## Screenshots
 
-![App Screenshot](https://www.hizliresim.com/rxoiqc3)
+![App Screenshot1](https://github.com/Batuhanseckin/test_app/blob/main/assets/git_images/choose_country_code.png?raw=true)
 
-![App Screenshot](https://www.hizliresim.com/lkx2s06)
+![App Screenshot2](https://www.hizliresim.com/lkx2s06)
 
-![App Screenshot](https://www.hizliresim.com/1pfnmk9)
+![App Screenshot3](https://www.hizliresim.com/1pfnmk9)
 
-![App Screenshot](https://www.hizliresim.com/18oet2o)
+![App Screenshot4](https://www.hizliresim.com/18oet2o)
