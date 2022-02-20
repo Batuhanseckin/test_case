@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:test_case/views/search/search_view.dart';
+import 'package:test_case/widgets/bnv/custom_bottom_navbar.dart';
 import 'main_view_model.dart';
 
 class MainView extends StatelessWidget {
@@ -8,16 +10,30 @@ class MainView extends StatelessWidget {
     return ViewModelBuilder<MainViewModel>.reactive(
       builder: (BuildContext context, MainViewModel viewModel, Widget _) {
         return Scaffold(
-          body: _buildBody(),
+          body: getBodyFromCurrentIndex(viewModel),
+          bottomNavigationBar: CustomBottomNavigationBar(
+            currentIndex: viewModel.currentIndex,
+            onTap: (index) {
+              if (viewModel.currentIndex != index) {
+                viewModel.setIndex(index);
+              }
+            },
+          ),
         );
       },
       viewModelBuilder: () => MainViewModel(),
     );
   }
 
-  Center _buildBody() {
-    return Center(
-      child: Text('Main View'),
-    );
+  Widget getBodyFromCurrentIndex(MainViewModel viewModel) {
+    switch (viewModel.currentIndex) {
+      case 0:
+        return SearchView();
+        break;
+      default:
+        return const Center(
+          child: Text('page not found'),
+        );
+    }
   }
 }
