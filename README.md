@@ -29,3 +29,5 @@ Run project
 ```
 ## Screenshots
 ![App ScreenShot1](https://www.hizliresim.com/rxoiqc3 | width=100)
+![App Screenshot1](https://www.hizliresim.com/rxoiqc3)
+
