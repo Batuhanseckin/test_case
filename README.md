@@ -28,11 +28,4 @@ Run project
   flutter run
 ```
 ## Screenshots
-
-![App Screenshot1](https://github.com/Batuhanseckin/test_app/blob/main/assets/git_images/choose_country_code.png?raw=true)
-
-![App Screenshot2](https://www.hizliresim.com/lkx2s06)
-
-![App Screenshot3](https://www.hizliresim.com/1pfnmk9)
-
-![App Screenshot4](https://www.hizliresim.com/18oet2o)
+![App ScreenShot1](https://www.hizliresim.com/rxoiqc3 | width=100)
